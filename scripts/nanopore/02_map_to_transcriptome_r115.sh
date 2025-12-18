@@ -5,7 +5,7 @@ set -euo pipefail
 # Input:  config/cortex_samples.tsv (sample_id, pod5_dir, out_dir, genome_fa, tx_fa)
 # Output: <out_dir>/${sample}.txome.sorted.bam (+ .bai)
 
-SAMPLES_TSV="config/cortex_samples.tsv"
+SAMPLES_TSV="config/cortex_samples_nanopore.tsv"
 
 source /etc/profile.d/modules.sh
 module load minimap2
