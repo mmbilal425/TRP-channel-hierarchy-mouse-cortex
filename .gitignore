@@ -1,1 +1,25 @@
+# HPC / large data
+*.bam
+*.bai
+*.fastq
+*.fq
+*.pod5
+*.sam
+*.tsv
+*.csv
+*.h5
+*.pdf
+*.png
+
+# Logs and results
+logs/
+results/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
 
