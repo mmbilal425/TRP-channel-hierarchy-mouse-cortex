@@ -1,0 +1,4 @@
+sample_id	pod5_dir	out_dir	genome_fa	tx_fa
+cortex_rep1	/g/data/lf10/as7425/2024-05-22_mouse-cortex-minION-rep1/...	/g/data/lf10/mb1232/analysis/cortex_rep1	/g/data/lf10/mb1232/reference_genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa	/g/data/lf10/mb1232/reference_genomes/Mus_musculus.GRCm39.cdna.all.r115.fa
+cortex_rep2	/g/data/lf10/mb1232/nanopore_data/...	/g/data/lf10/mb1232/analysis/cortex_rep2	/g/data/lf10/mb1232/reference_genomes/Mus_musculus.GRCm39.dna.primary_assembly.fa	/g/data/lf10/mb1232/reference_genomes/Mus_musculus.GRCm39.cdna.all.r115.fa
+cortex_rep3	/g/data/qq78/as7425/...	/g/data/qq78/mb1232/analysis/cortex_rep3	/g/data/qq78/mb1232/reference_genome/Mus_musculus.GRCm39.dna.primary_assembly.fa	/g/data/lf10/mb1232/reference_genomes/Mus_musculus.GRCm39.cdna.all.r115.fa
