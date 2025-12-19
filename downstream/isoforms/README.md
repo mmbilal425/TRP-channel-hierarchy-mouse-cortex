@@ -17,7 +17,8 @@ performed here.
 
 **00_filter_novel_TRP_isoforms.py**  
 Filters IsoQuant SQANTI-like annotations to retain novel TRP isoforms
-classified as `novel_in_catalog` (NIC) or `novel_not_in_catalog` (NNC).
+classified as `novel_in_catalog` (NIC) or `novel_not_in_catalog` (NNC),
+restricted to TRP genes.
 
 **01_attach_TPM_to_novel_TRP_isoforms.py**  
 Joins replicate-level transcript TPMs to the filtered novel TRP isoforms
@@ -31,9 +32,22 @@ for genome browser visualisation (IGV).
 Annotates Ensembl gene IDs with gene symbols using the same reference GTF
 used for IsoQuant.
 
-## Outputs
-- Tabulated summary of novel TRP isoforms with mean TPM
-- List of novel TRP transcript IDs
-- GTF file containing only novel TRP transcript models
+**04_build_known_TRP_isoforms_TPM_table.py**  
+Builds a table of **known/reference** TRP isoforms with TPMs from IsoQuant
+transcript TPM outputs, restricted to annotated transcript IDs and TRP genes.
 
-Plots derived from these outputs are located in `downstream/tpm/figures/`.
+## Outputs
+Novel isoforms:
+- `Mouse_Cortex_dRNA/TRP_novel/novel_TRP_isoforms_with_TPM.tsv`
+- `Mouse_Cortex_dRNA/TRP_novel/novel_TRP_isoforms_with_TPM_and_names.tsv`
+- `Mouse_Cortex_dRNA/TRP_novel/novel_TRP_transcript_ids.txt`
+- `Mouse_Cortex_dRNA/TRP_novel/novel_TRP_transcript_models.gtf`
+
+Known isoforms:
+- `Mouse_Cortex_dRNA/TRP_known/known_TRP_isoforms_TPM.tsv`
+
+## Figures
+Plots derived from these outputs are located in:
+
+- `downstream/tpm/figures/SuppFigS3a_isoquant_known_TRP_isoforms_TPM_bar.py`
+- `downstream/tpm/figures/SuppFigS3b_isoquant_novel_TRP_isoforms_TPM_bar.py`
