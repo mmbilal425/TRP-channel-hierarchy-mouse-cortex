@@ -1,25 +1,17 @@
-# HPC / large data
+# big outputs
 *.bam
 *.bai
-*.fastq
-*.fq
-*.pod5
-*.sam
-*.tsv
-*.csv
-*.h5
+*.bed
+*.parquet
+*.fastq*
+*.fq*
 *.pdf
 *.png
+*.tsv
+*.csv
 
-# Logs and results
+# local/hpc junk
 logs/
 results/
-
-# Python
 __pycache__/
-*.pyc
-
-# OS
-.DS_Store
-Thumbs.db
-
+.ipynb_checkpoints/
