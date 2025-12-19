@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""
+00_import_modkit_pileup_to_parquet.py
+
+Read modkit pileup BED and export a compact parquet table:
+chr, start, strand, merged_bam_coverage, merged_bam_stoich
+
+Filters:
+- mod type == "a"  (m6A)
+- coverage >= 2
+"""
+
+import os
+import sys
+import time
+import logging
+import subprocess
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+# ----------------------------
+# CONFIG (defaults = your HPC)
+# ----------------------------
+BED_IN = "/g/data/lf10/mb1232/nanopore_data/2024_neurotranscriptomics/merged_bam_files/m6a_modkit_output/mouse_cortex_merged_pileup_filt0.5_mod0.99_global0.9_allMods.bed"
+OUT_DIR = "/g/data/lf10/mb1232/nanopore_data/2024_neurotranscriptomics/data"
+OUT_PARQUET = "merged_m6a_pileups.parquet"
+
+CPU_COUNT = 32
+AWK_BUFFER_SIZE = 1024 * 1024 * 1024  # 1GB
+
+
+# ----------------------------
+# LOGGING
+# ----------------------------
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%H:%M:%S"
+)
+
+
+# ----------------------------
+# HELPERS
+# ----------------------------
+def read_modkit_bed_as_df(bed_path: str) -> pd.DataFrame:
+    """
+    Uses AWK to extract only m6A rows ('a') with coverage >=2 and keeps:
+    chr, start, coverage, strand, stoich
+
+    NOTE: Your original AWK:
+      $4=="a" && $5>=2 {print $1,$2,$5,$6,$11}
+    """
+    bed_path = str(bed_path)
+
+    cmd = (
+        f"awk -v OFS='\\t' "
+        f"'$4 == \"a\" && $5 >= 2 {{print $1,$2,$5,$6,$11}}' "
+        f"{bed_path}"
+    )
+
+    logging.info("Running AWK filter...")
+    proc = subprocess.Popen(
+        cmd,
+        shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        bufsize=AWK_BUFFER_SIZE
+    )
+
+    df = pd.read_csv(
+        proc.stdout,
+        sep="\t",
+        header=None,
+        names=["chr", "start", "coverage", "strand", "stoich"],
+        dtype={
+            "chr": "category",
+            "start": np.int64,
+            "coverage": np.int32,
+            "strand": "category",
+            "stoich": np.float32
+        },
+        engine="c",
+        low_memory=False,
+        na_filter=False,
+    )
+
+    stderr = proc.communicate()[1]
+    if proc.returncode != 0:
+        logging.error(stderr.decode("utf-8", errors="replace"))
+        raise RuntimeError("AWK failed")
+
+    if df.empty:
+        raise ValueError("No rows read from BED after filtering")
+
+    # rename to match your later code
+    df.rename(
+        columns={"coverage": "merged_bam_coverage", "stoich": "merged_bam_stoich"},
+        inplace=True
+    )
+
+    # stable sort
+    df = df.sort_values(["chr", "start", "strand"], kind="mergesort").reset_index(drop=True)
+
+    # sanity
+    if df[["chr", "start", "strand"]].duplicated().any():
+        raise ValueError("Duplicate keys detected: (chr,start,strand) not unique")
+
+    return df
+
+
+def main():
+    t0 = time.time()
+
+    out_dir = Path(OUT_DIR)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    logging.info(f"Input BED: {BED_IN}")
+    df = read_modkit_bed_as_df(BED_IN)
+
+    out_path = out_dir / OUT_PARQUET
+    logging.info(f"Writing parquet: {out_path}")
+    df.to_parquet(out_path, index=False, compression="snappy")
+
+    logging.info(f"Done. Rows={len(df):,} cols={df.shape[1]} time={time.time()-t0:.1f}s")
+
+
+if __name__ == "__main__":
+    main()
