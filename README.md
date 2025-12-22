@@ -26,7 +26,7 @@ This repository accompanies a manuscript describing a multi-omic analysis of TRP
 ## Key inputs
 Most downstream scripts expect:
 - Ensembl r115 GTF: `Mus_musculus.GRCm39.115.gtf.gz`
-- TRP allowlist: TRP gene IDs + symbols (recommended to keep in `config/`)
+- TRP gene IDs + symbols 
 
 ## Downstream expression (current)
 ### Tables
