@@ -1,3 +1,14 @@
+"""
+Table generator (Illumina / Salmon, Ensembl r115)
+Build merged gene-level TPM table from quant.genes.sf (gene symbols).
+Inputs:
+  salmon_output_r115/*_genes_symbol/quant.genes.sf
+  Mus_musculus.GRCm39.115.gtf.gz (gene_name -> gene_id mapping)
+Outputs:
+  results/Merged_Salmon_GeneSymbol_TPMs_r115.tsv
+"""
+
+
 import pandas as pd
 import glob, gzip, re
 from pathlib import Path
