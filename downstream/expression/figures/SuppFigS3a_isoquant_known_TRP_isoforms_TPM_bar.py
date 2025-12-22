@@ -9,11 +9,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib import font_manager as fm
 
+# =================== paths ===================
 BASE     = "/g/data/lf10/mb1232/nanopore_data/2024_neurotranscriptomics/Isoquant_results_from_fastq/Mouse_Cortex_dRNA"
 IN_TSV   = f"{BASE}/TRP_known/known_TRP_isoforms_TPM.tsv"
 OUT_PDF  = f"{BASE}/TRP_known/known_TRP_isoform_expression_TPM_sorted_by_family.pdf"
 os.makedirs(os.path.dirname(OUT_PDF), exist_ok=True)
 
+# =================== style ===================
 available_fonts = {f.name for f in fm.fontManager.ttflist}
 font_choice = "Arial" if "Arial" in available_fonts else "DejaVu Sans"
 
@@ -34,6 +36,7 @@ plt.rcParams.update({
 })
 sns.set_style("white")
 
+# =================== load ===================
 df = pd.read_csv(IN_TSV, sep="\t")
 
 def get_family(name: str) -> str:
@@ -67,6 +70,7 @@ tmp = df.apply(lambda r: gene_sort_key(r["gene_name"], r["family"]), axis=1, res
 df["gene_num"]     = tmp[0].astype(int)
 df["gene_subrank"] = tmp[1].astype(int)
 
+# ✅ single-line label (gene + transcript ID same line)
 df["label"] = df["gene_name"].astype(str).str.strip() + " (" + df["transcript_id"].astype(str).str.strip() + ")"
 
 family_order = ["TRPML", "TRPP", "TRPC", "TRPM", "TRPV"]
@@ -88,6 +92,7 @@ palette = {
     "TRPV":  "#8da0cb",
 }
 
+# =================== plot ===================
 n = len(df)
 fig_w = max(10.5, n * 0.42)
 fig_h = 6.2
@@ -130,6 +135,7 @@ ax.set_axisbelow(True)
 
 ax.set_xlim(-0.6, n - 0.4)
 
+# value labels
 vals = df["mean_TPM"].to_numpy(dtype=float)
 ymax = np.nanmax(vals) if np.isfinite(vals).any() else 1.0
 ax.set_ylim(0, ymax * 1.18)
@@ -146,6 +152,7 @@ for p in ax.patches:
                     xytext=(0, 2.5), textcoords="offset points",
                     clip_on=False)
 
+# legend in separate axis
 handles, labels = ax.get_legend_handles_labels()
 if ax.get_legend() is not None:
     ax.get_legend().remove()
@@ -160,6 +167,7 @@ ax_leg.legend(
     fontsize=12
 )
 
+# more bottom space for long single-line rotated labels
 fig.subplots_adjust(bottom=0.43, left=0.08, right=0.98, top=0.92)
 
 fig.savefig(OUT_PDF, dpi=600, bbox_inches="tight")
