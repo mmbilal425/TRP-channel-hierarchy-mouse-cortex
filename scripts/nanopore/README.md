@@ -32,6 +32,6 @@ This folder contains the **primary Nanopore processing pipeline** used to genera
 
 ## Downstream analyses
 
-- TPM tables/figures: `downstream/tpm/`
+- TPM tables/figures: `downstream/expression/`
 - m6A analysis + figures: `downstream/m6A/`
 - Isoform summaries/figures: `downstream/isoforms/`
