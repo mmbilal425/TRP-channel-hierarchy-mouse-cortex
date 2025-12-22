@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Figure 1B — Nanopore (NanoCount) Cortex TRP gene expression (TPM)
+Figure 1B - Nanopore (NanoCount) Cortex TRP gene expression (TPM)
 
 Reads TRP gene-level TPMs (with replicate columns) and generates a
 publication-ready bar plot of mean TPM per TRP gene, coloured by TRP family.

@@ -1,7 +1,8 @@
 """
-Figure 1C - Illumina RNA-seq (Salmon) TRP gene expression in adult mouse cortex.
-TPM values represent mean across cortex replicates (r115 annotation).
+Figure 1D - Illumina RNA-seq (Salmon) TRP gene expression in adult mouse DRG.
+TPM values from DRG replicate 1 (r115 annotation).
 """
+
 
 from pathlib import Path
 import re
@@ -19,7 +20,7 @@ RES.mkdir(parents=True, exist_ok=True)
 IN_TSV   = RES / "Merged_Salmon_GeneSymbol_TPMs_r115.tsv"
 TRP_LIST = Path("/g/data/lf10/mb1232/nanopore_data/2024_neurotranscriptomics/data/trp_gene_ids.txt")
 
-OUT_PDF = RES / "TRP_TPM_CortexMean_Salmon_r115_panel.pdf"
+OUT_PDF = RES / "TRP_TPM_DRG_Salmon_r115_panel.pdf"
 YTICKS_STEP = 10
 
 # -------------------- fonts / rcParams (same as your layout) --------------------
@@ -80,7 +81,7 @@ gene_order = [
     "Trpm1","Trpm2","Trpm3","Trpm4","Trpm5","Trpm6","Trpm7","Trpm8",
     "Trpv1","Trpv2","Trpv3","Trpv4","Trpv5","Trpv6",
 ]
-order_map = {g.upper(): i for i, g in enumerate(gene_order)}
+ord_map = {g.upper(): i for i, g in enumerate(gene_order)}
 
 palette = {
     "TRPML": "#4682b4",
@@ -95,31 +96,29 @@ hue_order = ["TRPML","TRPP","TRPA","TRPC","TRPM","TRPV"]
 # -------------------- load merged table --------------------
 df = pd.read_csv(IN_TSV, sep="\t")
 
-required = {"gene_name", "TPM_Cortex_mean"}
+required = {"gene_name", "TPM_DRG"}
 missing = required - set(df.columns)
 if missing:
     raise ValueError(f"Missing expected columns in {IN_TSV}:\n  {sorted(missing)}")
 
 df["gene_name"] = df["gene_name"].astype(str)
-df["TPM_Cortex_mean"] = pd.to_numeric(df["TPM_Cortex_mean"], errors="coerce").fillna(0.0)
+df["TPM_DRG"] = pd.to_numeric(df["TPM_DRG"], errors="coerce").fillna(0.0)
 
-# -------------------- filter to TRP --------------------
+# -------------------- filter to TRP genes --------------------
 trp_syms = load_trp_symbols(TRP_LIST)
 TRP_UP = {s.upper() for s in trp_syms}
 
-w = df[df["gene_name"].str.upper().isin(TRP_UP)].copy()
-w["GeneName"] = w["gene_name"].str.strip().str.capitalize()
-w["TPM_mean"] = w["TPM_Cortex_mean"]
+q = df[df["gene_name"].str.upper().isin(TRP_UP)].copy()
 
-w["family"] = w["GeneName"].apply(family)
-w = w[w["family"] != "Other"].copy()
+q["GeneName"] = q["gene_name"].str.strip().str.capitalize()
+q["_ord"] = q["GeneName"].str.upper().map(ord_map)
+q = q.dropna(subset=["_ord"]).sort_values("_ord", kind="stable").copy()
 
-w["_ord"] = w["GeneName"].str.upper().map(order_map)
-final = w.dropna(subset=["_ord"]).sort_values("_ord", kind="stable").copy()
+q["family"] = q["GeneName"].apply(family)
+q = q[q["family"] != "Other"].copy()
 
-# -------------------- plotting (EXACT same layout) --------------------
-d = final.copy()
-max_val = float(d["TPM_mean"].max()) if len(d) else 0.0
+# -------------------- plot (EXACT same layout) --------------------
+max_val = float(q["TPM_DRG"].max()) if len(q) else 0.0
 top = float(np.ceil(max_val / YTICKS_STEP) * YTICKS_STEP) if max_val > 0 else YTICKS_STEP
 yticks = np.arange(0, top + YTICKS_STEP, YTICKS_STEP)
 
@@ -131,14 +130,14 @@ ax_leg = fig.add_subplot(gs[0, 1])
 ax_leg.axis("off")
 
 sns.barplot(
-    x="GeneName", y="TPM_mean", hue="family",
-    data=d, dodge=False, palette=palette,
+    x="GeneName", y="TPM_DRG", hue="family",
+    data=q, dodge=False, palette=palette,
     hue_order=hue_order, ax=ax
 )
 
 ax.margins(x=0.01)
 ax.set_xlabel("Gene", labelpad=6)
-ax.set_ylabel("TPM (Cortex)", labelpad=10)
+ax.set_ylabel("TPM (DRG)", labelpad=10)
 
 ax.set_yticks(yticks)
 ax.set_ylim(0, top)
