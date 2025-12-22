@@ -1,3 +1,18 @@
+"""
+PIPELINE STEP — Illumina RNA-seq (Salmon, Ensembl r115)
+
+Purpose:
+Merge per-sample Salmon gene-level TPMs (quant.genes.sf, gene symbols)
+into a single matrix with cortex replicates and DRG.
+
+Output:
+salmon_output_r115/results/Merged_Salmon_GeneSymbol_TPMs_r115.tsv
+
+NOTE:
+Downstream analysis, filtering, and figure-specific tables are handled in:
+downstream/expression/tables/
+"""
+
 import pandas as pd
 import glob, gzip, re
 from pathlib import Path
