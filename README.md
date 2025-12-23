@@ -50,17 +50,18 @@ Located in `downstream/expression/figures/`
   - Fig 1C: Salmon cortex mean TPM
   - Fig 1D: Salmon DRG TPM
 
-- Supplementary figures (examples)
+- Supplementary figures 
   - Supp Fig S1: read-count comparisons (NanoCount + Salmon)
   - Supp Fig S2: TPM family pie, Venn overlap, log2FC heatmap
-  - (additional scripts may be added as analysis expands)
 
 ## Software
 Analyses were performed using:
-- Salmon
-- NanoCount
-- IsoQuant
-- Python (3.x) with pandas / numpy / matplotlib / seaborn
+- Dorado v0.7.0
+- minimap2 v2.28
+- Salmon v1.10.1
+- NanoCount v1.2.1
+- IsoQuant v3.7.0
+- Python v3.9.2
 - R (where applicable)
 
 ## Notes
