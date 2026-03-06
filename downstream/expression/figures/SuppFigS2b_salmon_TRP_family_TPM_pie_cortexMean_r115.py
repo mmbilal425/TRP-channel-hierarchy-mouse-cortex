@@ -17,8 +17,7 @@ OUT_PDF = RES / "TRP_family_TPM_distribution_piechart_r115.pdf"
 
 # -------------------- font settings --------------------
 available_fonts = {f.name for f in fm.fontManager.ttflist}
-font_choice = "Arial" if "Arial" in available_fonts else "DejaVu Sans"
-
+font_choice = "Arial"
 plt.rcParams.update({
     "font.family": font_choice,
     "font.size": 14,
@@ -119,7 +118,7 @@ wedges, texts, autotexts = plt.pie(
     startangle=90,
     counterclock=False,
     colors=colors,
-    textprops={"fontsize": 12},
+    textprops={"fontsize": 16},
 )
 
 # nudge tiny TRPA label
