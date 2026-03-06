@@ -5,7 +5,7 @@ from matplotlib import font_manager as fm
 
 # -------- font settings (same as Illumina plot) --------
 available_fonts = {f.name for f in fm.fontManager.ttflist}
-font_choice = "Arial" if "Arial" in available_fonts else "DejaVu Sans"
+font_choice = "Arial" 
 
 plt.rcParams.update({
     "font.family": font_choice,
@@ -66,7 +66,8 @@ wedges, texts, autotexts = plt.pie(
     startangle=90,
     counterclock=False,
     colors=colors,
-    textprops={"fontsize": 12},
+    textprops={"fontsize": 16
+              },
 )
 
 # Optional: nudge TRPA label up if present (tiny slice)
