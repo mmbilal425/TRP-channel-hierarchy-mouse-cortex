@@ -1,5 +1,4 @@
-# SuppFigS3a_isoquant_known_TRP_isoforms_TPM_bar.py
-# Plot known TRP isoform TPM (Supplementary Figure)
+# === Known TRP isoform expression (TPM) — single-line labels + TPM values ===
 
 import re
 import os
@@ -17,7 +16,7 @@ os.makedirs(os.path.dirname(OUT_PDF), exist_ok=True)
 
 # =================== style ===================
 available_fonts = {f.name for f in fm.fontManager.ttflist}
-font_choice = "Arial" if "Arial" in available_fonts else "DejaVu Sans"
+font_choice = "Arial"
 
 plt.rcParams.update({
     "font.family": font_choice,
@@ -113,7 +112,7 @@ sns.barplot(
 
 xpos = np.arange(n)
 ax.set_xticks(xpos)
-ax.set_xticklabels(labels_order, rotation=60, ha="right")
+ax.set_xticklabels(labels_order, rotation=45, ha="right")
 
 ax.set_xlabel("Gene (Transcript ID)", labelpad=12)
 ax.set_ylabel("TPM", labelpad=10)
