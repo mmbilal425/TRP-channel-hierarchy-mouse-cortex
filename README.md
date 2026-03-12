@@ -1,6 +1,6 @@
 # TRP_mouse_cortex
 
-Reproducible analysis pipeline for multi-omic profiling of Transient Receptor Potential (TRP) channel expression in adult mouse cortex and dorsal root ganglion (DRG).
+Reproducible analysis pipeline for Transcriptomic and Proteomic Profiling of TRP Channels in Mouse Cortex and Other Peripheral Organs 
 
 This repository accompanies a manuscript describing integrated transcriptomic, isoform-level, epitranscriptomic, and qPCR validation analyses of TRP channels using:
 
