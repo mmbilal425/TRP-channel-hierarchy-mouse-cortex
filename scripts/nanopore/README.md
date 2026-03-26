@@ -23,7 +23,7 @@ This folder contains the **primary Nanopore processing pipeline** used to genera
    - Note: these outputs are the source for all Nanopore-derived TPM figures.
 
 4) **04_isoquant_from_fastq_GRCm39_r115.sh**
-   - Input: FASTQ (or BAM depending on your workflow) + r115 GTF
+   - Input: FASTQ + r115 GTF
    - Output: isoform annotations and classification tables
 
 5) **05_modkit_m6A_pileup_r115.sh**
