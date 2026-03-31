@@ -1,4 +1,4 @@
-# TRP_mouse_cortex
+# Integrated transcriptomics and proteomics define the TRP channel hierarchy in mouse cortex
 
 Reproducible analysis pipeline for Transcriptomic and Proteomic Profiling of TRP Channels in Mouse Cortex and Other Peripheral Organs 
 
