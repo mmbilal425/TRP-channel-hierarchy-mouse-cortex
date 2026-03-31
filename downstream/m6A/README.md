@@ -1,6 +1,6 @@
 # m6A downstream analysis (Nanopore direct RNA; modkit)
 
-This folder contains the downstream processing steps used to quantify m6A sites from a **modkit pileup BED** generated on merged Nanopore direct RNA reads, annotate sequence motifs (DRACH/RAC), call modified sites, assign sites to genes, and generate **Supplementary Fig. S5 (a–c)**.
+This folder contains the downstream processing steps used to quantify m6A sites from a **modkit pileup BED** generated on merged Nanopore direct RNA reads, annotate sequence motifs (DRACH/RAC), call modified sites, assign sites to genes, and generate **Supplementary Fig. S6 (a–c)**.
 
 ---
 
@@ -57,19 +57,19 @@ This folder contains the downstream processing steps used to quantify m6A sites 
 
 ---
 
-## Figures (Supplementary Fig. S5)
+## Figures (Supplementary Fig. S6)
 
 Figure scripts are stored in: **`figures/`**
 
-- **S5a:** `figures/SuppFig_S5a_m6A_stoichiometry_TRP.py`  
+- **S6a:** `figures/SuppFig_S6a_m6A_stoichiometry_TRP.py`  
   → `stoichiometry_histogram.pdf` (+ `stoichiometry_histogram.tsv`)
 
-- **S5b:** `figures/SuppFig_S5b_m6A_ranked_motifs_TRP.py`  
+- **S6b:** `figures/SuppFig_S6b_m6A_ranked_motifs_TRP.py`  
   → `motif_modification_rates_m6A.pdf`  
   → `motif_modification_rates_m6A_legend.pdf`  
   → `motif_modification_rates_m6A.tsv`
 
-- **S5c:** `figures/SuppFig_S5c_m6A_sites_per_TRP_gene.py`  
+- **S6c:** `figures/SuppFig_S6c_m6A_sites_per_TRP_gene.py`  
   → `modified_sites_per_gene.pdf` (+ `modified_sites_per_gene.tsv`)
 
 ---
