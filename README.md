@@ -128,8 +128,8 @@ Merged outputs include:
 
 Used in:
 - Fig 1C–D
-- Supp Fig S2b–S2d
-- Supp Fig S3b–S3d
+- Supp Fig S2b,c,d
+- Supp Fig S3b,d
 
 ---
 
