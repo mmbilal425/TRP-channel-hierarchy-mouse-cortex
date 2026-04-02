@@ -4,6 +4,11 @@ This folder contains proteomics analysis code added separately from the transcri
 
 This section was added to avoid changing the existing transcriptomic analysis structure.
 
+# Notes
+Large raw proteomics data files are not included in this repository.
+Input tables provided here are processed subsets used for figure generation.
+Folder structure is designed to keep proteomics analyses modular and independent from transcriptomic workflows.
+
 ## Structure
 
 ### GO_analysis/
