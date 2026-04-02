@@ -1,0 +1,8 @@
+GO bubble plot run summary
+==========================
+Input directory: C:/Users/u6266884/OneDrive - Australian National University/Muhammad Bilal's files - TRP paper/Figures/Supplementary Figures/GO_analysis
+Output directory: C:/Users/u6266884/OneDrive - Australian National University/Muhammad Bilal's files - TRP paper/Figures/Supplementary Figures/GO_analysis
+Protocols: SN_GO, Control_GO, Pellet_GO, Pelletpellet_GO, FASP_Pellet_GO, FASP_8M_GO, FASP_SDS_GO, Gel_GO
+Top N per protocol: 12
+GO colours: low=#7BB0DF, high=#DB5829
+Heatmap colours stored for reuse: low=#B6DBFF, high=#1964B0
