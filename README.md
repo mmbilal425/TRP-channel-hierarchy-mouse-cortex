@@ -66,14 +66,14 @@ All manuscript figures are generated directly from scripts contained in this rep
       - Main expression panels (Fig 1)
       - qPCR validation panels (Fig 2 and Fig 4)
       - Correlation plots
-      - Supplementary expression figures (S2–S4)
+      - Supplementary expression figures (2–4)
 
   - `downstream/m6A/`
     - modkit pileup import
     - Motif annotation (DRACH, RAC)
     - Modified site calling
     - Gene assignment
-    - Supplementary Figure S6 panels
+    - Supplementary Figure 6 panels
 
 ---
 
@@ -92,7 +92,7 @@ Most downstream scripts require:
 
 - IsoQuant isoform models (for isoform panels)
 
-- Annotated m6A site tables (for Supplementary Fig S6)
+- Annotated m6A site tables (for Supplementary Fig 6)
 
 ---
 
@@ -111,9 +111,9 @@ Located in:
 
 Used in:
 - Fig 1B
-- Supp Fig S2a
-- Supp Fig S3a
-- Supp Fig S4 (isoform panels)
+- Supp Fig 2a
+- Supp Fig 3a
+- Supp Fig 4 (isoform panels)
 
 ---
 
@@ -123,13 +123,13 @@ Merged outputs include:
 
 - Cortex replicate TPMs
 - Cortex mean TPM
-- DRG TPM
+- DRG TP
 - Gene ID annotation (Ensembl r115)
 
 Used in:
 - Fig 1C–D
-- Supp Fig S2b,c,d
-- Supp Fig S3b,d
+- Supp Fig 2b,c,d
+- Supp Fig 3b,d
 
 ---
 
@@ -138,7 +138,7 @@ Used in:
 - Known TRP isoforms
 - Novel TRP isoforms
 - Long-read splice validation
-- Isoform TPM panels (Supp Fig S4)
+- Isoform TPM panels (Supp Fig 4)
 
 ---
 
@@ -153,7 +153,7 @@ Pipeline steps:
 2. Attach motif annotation (DRACH, RAC)
 3. Call modified sites
 4. Assign sites to genes
-5. Generate Supplementary Fig S6 panels
+5. Generate Supplementary Fig 6 panels
 
 Figure outputs include:
 
