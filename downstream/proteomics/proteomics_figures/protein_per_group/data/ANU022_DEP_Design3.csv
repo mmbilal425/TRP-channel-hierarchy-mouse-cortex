@@ -1,0 +1,25 @@
+﻿label,condition,replicate
+LFQ Intensity FASP_8M_1.raw,FASP_8M,1
+LFQ Intensity FASP_8M_2.raw,FASP_8M,2
+LFQ Intensity FASP_8M_3.raw,FASP_8M,3
+LFQ Intensity Control_1.raw,Control,1
+LFQ Intensity Gel_1.raw,Gel,1
+LFQ Intensity FASP_Pellet_1.raw,FASP_Pellet,1
+LFQ Intensity SN_1.raw,SN,1
+LFQ Intensity Control_2.raw,Control,2
+LFQ Intensity Gel_2.raw,Gel,2
+LFQ Intensity FASP_Pellet_2.raw,FASP_Pellet,2
+LFQ Intensity SN_2.raw,SN,2
+LFQ Intensity Control_3.raw,Control,3
+LFQ Intensity Gel_3.raw,Gel,3
+LFQ Intensity FASP_Pellet_3.raw,FASP_Pellet,3
+LFQ Intensity SN_3.raw,SN,3
+LFQ Intensity Pelletpellet_1.raw,Pelletpellet,1
+LFQ Intensity Pelletpellet_2.raw,Pelletpellet,2
+LFQ Intensity Pelletpellet_3.raw,Pelletpellet,3
+LFQ Intensity Pellet_1.raw,Pellet,1
+LFQ Intensity Pellet_2.raw,Pellet,2
+LFQ Intensity Pellet_3.raw,Pellet,3
+LFQ Intensity FASP_SDS_1.raw,FASP_SDS,1
+LFQ Intensity FASP_SDS_2.raw,FASP_SDS,2
+LFQ Intensity FASP_SDS_3.raw,FASP_SDS,3
