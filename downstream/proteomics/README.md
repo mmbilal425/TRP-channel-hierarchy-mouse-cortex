@@ -59,14 +59,14 @@ Protein counts per sample and PCA legend generation.
 
 ## Reproducibility
 
-All scripts are designed to run locally using relative paths.  
+All scripts are written to run locally using relative paths.  
 Each analysis folder contains:
 
 - `code/`: executable scripts  
 - `data/`: required input files  
 - `output/`: generated figures  
 
-To reproduce a figure, navigate to the corresponding folder and run the script, for example:
+To reproduce any figure in your local path, navigate to the corresponding folder and run the script, for example:
 
 ```bash
 python code/TRP_rerun.py
