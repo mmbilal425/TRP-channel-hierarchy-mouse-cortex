@@ -1,6 +1,6 @@
 # m6A downstream analysis (Nanopore direct RNA; modkit)
 
-This folder contains the downstream processing pipeline used to quantify m6A sites from a **modkit pileup BED** generated on merged Nanopore direct RNA reads, annotate sequence motifs (DRACH/RAC), call modified sites, assign sites to genes, and generate **Supplementary Fig. S6 (a–c)**.
+This folder contains the downstream processing pipeline used to quantify m6A sites from a **modkit pileup BED** generated on merged Nanopore direct RNA reads, annotate sequence motifs (DRACH/RAC), call modified sites, assign sites to genes, and generate **Supplementary Fig. 6 (a–c)**.
 
 Pipeline overview:
 modkit pileup → motif annotation → modified site calling → gene assignment → figure generation
