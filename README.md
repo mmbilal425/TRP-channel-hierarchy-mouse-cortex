@@ -75,6 +75,14 @@ All manuscript figures are generated directly from scripts contained in this rep
     - Gene assignment
     - Supplementary Figure 6 panels
 
+  - `downstream/proteomics/`
+    - Proteomics manuscript-facing analyses and figure-generation scripts
+    - `GO_analysis/`: GO enrichment bubble plots, input tables, and outputs
+    - `IP_analysis/`: TRP IP rerun analysis, input Excel file, and peptide heatmap outputs
+    - `heatmap/`: TRP protein intensity heatmaps across cortex and peripheral organs
+    - `proteomics_figures/`
+      - `heatmap_log/`: log10-transformed TRP heatmaps
+      - `protein_per_group/`: protein-per-sample plots and PCA legend generation
 ---
 
 ## Key inputs
