@@ -8,6 +8,7 @@ This repository accompanies a manuscript describing integrated transcriptomic, i
 - Nanopore direct RNA sequencing (NanoCount / IsoQuant)
 - m6A modification analysis (modkit)
 - qPCR validation
+- Proteomics analysis (LC–MS/MS-based protein quantification and downstream figure generation)
 - Downstream manuscript figure generation
 
 Large raw sequencing data and intermediate files are stored on HPC systems and are not included in this repository.
@@ -23,7 +24,7 @@ This project performs multi-platform profiling of TRP channel expression in adul
 - Isoform reconstruction and quantification
 - m6A site detection and motif analysis
 - qPCR validation
-- Manuscript-ready figure generation
+- Manuscript-related figure generation
 
 All manuscript figures are generated directly from scripts contained in this repository.
 
@@ -76,7 +77,7 @@ All manuscript figures are generated directly from scripts contained in this rep
     - Supplementary Figure 6 panels
 
   - `downstream/proteomics/`
-    - Proteomics manuscript-facing analyses and figure-generation scripts
+    - Proteomics manuscript-related analyses and figure-generation scripts
     - `GO_analysis/`: GO enrichment bubble plots, input tables, and outputs
     - `IP_analysis/`: TRP IP rerun analysis, input Excel file, and peptide heatmap outputs
     - `heatmap/`: TRP protein intensity heatmaps across cortex and peripheral organs
