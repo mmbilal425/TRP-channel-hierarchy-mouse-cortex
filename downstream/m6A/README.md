@@ -68,27 +68,27 @@ Example output directories:
 
 ---
 
-## Figures (Supplementary Fig. S6)
+## Figures (Supplementary Fig. 6)
 
 Figure scripts are located in: **`figures/`**
 
 These panels focus on **TRP genes only**.
 
-- **S6a — m6A stoichiometry distribution**
-  - Script: `SuppFig_S6a_m6A_stoichiometry_TRP.py`
+- **6a — m6A stoichiometry distribution**
+  - Script: `SuppFig_6a_m6A_stoichiometry_TRP.py`
   - Outputs:
     - `stoichiometry_histogram.pdf`
     - `stoichiometry_histogram.tsv`
 
-- **S6b — Ranked motif enrichment**
-  - Script: `SuppFig_S6b_m6A_ranked_motifs_TRP.py`
+- **6b — Ranked motif enrichment**
+  - Script: `SuppFig_6b_m6A_ranked_motifs_TRP.py`
   - Outputs:
     - `motif_modification_rates_m6A.pdf`
     - `motif_modification_rates_m6A_legend.pdf`
     - `motif_modification_rates_m6A.tsv`
 
-- **S6c — m6A sites per TRP gene**
-  - Script: `SuppFig_S6c_m6A_sites_per_TRP_gene.py`
+- **6c — m6A sites per TRP gene**
+  - Script: `SuppFig_6c_m6A_sites_per_TRP_gene.py`
   - Outputs:
     - `modified_sites_per_TRP_gene.pdf`
     - `modified_sites_per_TRP_gene.tsv`
