@@ -36,39 +36,39 @@ main and supplementary figures for the TRP mouse cortex study except m6A.
 
 ---
 
-## Supplementary Figure S2 – Read-count-based comparisons
-- **Fig. S2a** – Nanopore TRP read counts (cortex)  
-  (`SuppFigS2a_nanocount_TRP_readcounts_cortex_bar.py`)
+## Supplementary Figure 2 – Read-count-based comparisons
+- **Supp Fig. 2a** – Nanopore TRP read counts (cortex)  
+  (`SuppFig2a_nanocount_TRP_readcounts_cortex_bar.py`)
 
-- **Fig. S2b** – Illumina TRP read counts (cortex mean)  
-  (`SuppFigS2b_salmon_TRP_readcounts_cortexMean_r115_panel.py`)
+- **Supp Fig. 2b** – Illumina TRP read counts (cortex mean)  
+  (`SuppFig2b_salmon_TRP_readcounts_cortexMean_r115_panel.py`)
 
-- **Fig. S2c** – Illumina TRP read counts (DRG)  
-  (`SuppFigS2c_salmon_TRP_readcounts_DRG_r115_panel.py`)
+- **Supp Fig. 2c** – Illumina TRP read counts (DRG)  
+  (`SuppFig2c_salmon_TRP_readcounts_DRG_r115_panel.py`)
 
-- **Fig. S2d** – Cortex vs DRG TRP expression (dumbbell plot, log₁₀ TPM)  
-  (`SuppFigS2d_salmon_TRP_TPM_cortex_vs_DRG_dumbbell_log10_r115_panel.py`)
-
----
-
-## Supplementary Figure S3 – Expression distribution and contrast
-- **Fig. S3a** – TRP family TPM distribution (Nanopore)  
-  (`SuppFigS3a_nanocount_TRP_family_TPM_piechart_cortex.py`)
-
-- **Fig. S3b** – TRP family TPM distribution (Illumina)  
-  (`SuppFigS3b_salmon_TRP_family_TPM_pie_cortexMean_r115.py`)
-
-- **Fig. S3c** – Overlap of expressed TRP genes (Cortex vs DRG)  
-  (`SuppFigS3c_salmon_TRP_overlap_venn_TPMge0p5_r115.py`)
-
-- **Fig. S3d** – TRP log₂ fold-change heatmap (Cortex − DRG)  
-  (`SuppFigS3d_salmon_TRP_log2FC_heatmap_cortex_minus_drg_r115.py`)
+- **Supp Fig. 2d** – Cortex vs DRG TRP expression (dumbbell plot, log₁₀ TPM)  
+  (`SuppFig2d_salmon_TRP_TPM_cortex_vs_DRG_dumbbell_log10_r115_panel.py`)
 
 ---
 
-## Supplementary Figure S4 – Isoform-level expression
-- **Fig. S4a** – Known TRP isoform TPMs (IsoQuant)  
-  (`SuppFigS4a_isoquant_known_TRP_isoforms_TPM_bar.py`)
+## Supplementary Figure 3 – Expression distribution and contrast
+- **Supp Fig. 3a** – TRP family TPM distribution (Nanopore)  
+  (`SuppFig3a_nanocount_TRP_family_TPM_piechart_cortex.py`)
 
-- **Fig. S4b** – Novel TRP isoform TPMs (IsoQuant)  
-  (`SuppFigS4b_isoquant_novel_TRP_isoforms_TPM_bar.py`)
+- **Supp Fig. 3b** – TRP family TPM distribution (Illumina)  
+  (`SuppFig3b_salmon_TRP_family_TPM_pie_cortexMean_r115.py`)
+
+- **Supp Fig. 3c** – Overlap of expressed TRP genes (Cortex vs DRG)  
+  (`SuppFig3c_salmon_TRP_overlap_venn_TPMge0p5_r115.py`)
+
+- **Supp Fig. 3d** – TRP log₂ fold-change heatmap (Cortex − DRG)  
+  (`SuppFig3d_salmon_TRP_log2FC_heatmap_cortex_minus_drg_r115.py`)
+
+---
+
+## Supplementary Figure 4 – Isoform-level expression
+- **Supp Fig. 4a** – Known TRP isoform TPMs (IsoQuant)  
+  (`SuppFig4a_isoquant_known_TRP_isoforms_TPM_bar.py`)
+
+- **Supp Fig. 4b** – Novel TRP isoform TPMs (IsoQuant)  
+  (`SuppFig4b_isoquant_novel_TRP_isoforms_TPM_bar.py`)
