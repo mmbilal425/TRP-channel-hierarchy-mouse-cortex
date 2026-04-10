@@ -35,8 +35,8 @@ Large raw sequencing and proteomics datasets are stored on HPC systems and are n
 
 ## Data availability
 
-- Illumina RNA-seq and Nanopore direct RNA-seq: GEO (accession to be added)  
-- Proteomics data: PRIDE (accession to be added)  
+- RNA sequencing data generated in this study have been deposited in the NCBI Gene Expression Omnibus (GEO) under accession number **GSE315051** and will be publicly available upon publication. Raw FASTQ files are accessible via the associated Sequence Read Archive (SRA) records, and processed expression matrices are available in GEO.  
+- Mass spectrometry proteomics data have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifier **PXD074939**.
 
 ---
 
