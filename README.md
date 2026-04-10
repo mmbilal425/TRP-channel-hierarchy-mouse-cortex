@@ -1,32 +1,35 @@
-# Integrated transcriptomics and proteomics define the TRP channel hierarchy in mouse cortex
+# TRP-channel-hierarchy-mouse-cortex
 
-Reproducible analysis pipeline for Transcriptomic and Proteomic Profiling of TRP Channels in Mouse Cortex and Other Peripheral Organs 
+Reproducible analysis pipeline for multi-omic profiling of Transient Receptor Potential (TRP) channel expression in adult mouse cortex and dorsal root ganglion (DRG).
 
-This repository accompanies a manuscript describing integrated transcriptomic, isoform-level, epitranscriptomic, and qPCR validation analyses of TRP channels using:
+---
 
-- Illumina RNA-seq (Salmon)
-- Nanopore direct RNA sequencing (NanoCount / IsoQuant)
-- m6A modification analysis (modkit)
-- qPCR validation
-- Proteomics analysis (LC–MS/MS-based protein quantification and downstream figure generation)
-- Downstream manuscript figure generation
+## Preprint
 
-Large raw sequencing data and intermediate files are stored on HPC systems and are not included in this repository.
+This repository accompanies the following manuscript:
+
+**Integrated transcriptomics and proteomics define the TRP channel hierarchy in mouse cortex**  
+Bilal. M. et al (2026) 
+
+bioRxiv
+https://doi.org/10.64898/2026.04.07.716663
 
 ---
 
 ## Overview
 
-This project performs multi-platform profiling of TRP channel expression in adult mouse cortex and DRG, including:
+This project performs integrated multi-omic profiling of TRP channel expression across mouse nervous system tissues using:
 
-- Gene-level TPM and read-count quantification
-- Cross-platform comparison (Illumina vs Nanopore)
-- Isoform reconstruction and quantification
-- m6A site detection and motif analysis
+- Illumina RNA-seq (Salmon)
+- Nanopore direct RNA sequencing (NanoCount / IsoQuant)
+- m6A epitranscriptomic analysis (modkit)
 - qPCR validation
-- Manuscript-related figure generation
+- Proteomics (LC–MS/MS-based protein quantification)
+- Downstream manuscript figure generation
 
-All manuscript figures are generated directly from scripts contained in this repository.
+The repository provides all scripts required to reproduce gene-level, isoform-level, and protein-level analyses presented in the manuscript.
+
+Large raw sequencing and proteomics datasets are stored on HPC systems and are not included here.
 
 ---
 
@@ -39,69 +42,91 @@ All manuscript figures are generated directly from scripts contained in this rep
 
 ## Repository structure
 
-- `config/`
-  - TRP gene ID ↔ gene symbol mappings
-  - Sample metadata
-  - `project_paths.template.sh` (template for defining local paths)
+### `config/`
+- TRP gene ID ↔ gene symbol mappings  
+- Sample metadata  
+- `project_paths.template.sh` (template for local path configuration)
 
-- `scripts/`
-  - Upstream processing pipelines
-  - `scripts/illumina/`
-    - Adapter trimming
-    - Salmon index generation
-    - Salmon quantification
-    - Merge replicate-level gene TPM tables
-  - `scripts/nanopore/`
-    - Alignment (minimap2)
-    - Gene-level quantification (NanoCount)
-    - Isoform reconstruction (IsoQuant)
+---
 
-- `downstream/`
-  - Manuscript-facing analyses and figure-generation scripts
+### `scripts/` (upstream pipelines)
 
-  - `downstream/expression/`
-    - `tables/`
-      - Scripts generating NanoCount gene-level TPM and read-count tables (cortex)
-      - Scripts generating merged Salmon TPM tables (cortex mean + DRG)
-    - `figures/`
-      - Main expression panels (Fig 1)
-      - qPCR validation panels (Fig 2 and Fig 4)
-      - Correlation plots
-      - Supplementary expression figures (2–4)
+#### `scripts/illumina/`
+- Adapter trimming  
+- Salmon index generation  
+- Salmon quantification  
+- Merging replicate-level TPM tables  
 
-  - `downstream/m6A/`
-    - modkit pileup import
-    - Motif annotation (DRACH, RAC)
-    - Modified site calling
-    - Gene assignment
-    - Supplementary Figure 6 panels
+#### `scripts/nanopore/`
+- Alignment (minimap2)  
+- Gene-level quantification (NanoCount)  
+- Isoform reconstruction (IsoQuant)
 
-  - `downstream/proteomics/`
-    - Proteomics manuscript-related analyses and figure-generation scripts
-    - `GO_analysis/`: GO enrichment bubble plots, input tables, and outputs
-    - `IP_analysis/`: TRP IP rerun analysis, input Excel file, and peptide heatmap outputs
-    - `heatmap/`: TRP protein intensity heatmaps across cortex and peripheral organs
-    - `proteomics_figures/`
-      - `heatmap_log/`: log10-transformed TRP heatmaps
-      - `protein_per_group/`: protein-per-sample plots and PCA legend generation
+---
+
+### `downstream/` (manuscript analyses)
+
+#### `downstream/expression/`
+- **tables/**  
+  - Gene-level TPM and read-count generation  
+- **figures/**  
+  - Main figures (Fig 1)  
+  - qPCR validation (Fig 2, Fig 4)  
+  - Correlation analyses  
+  - Supplementary Figures S2–S4  
+
+---
+
+#### `downstream/m6A/`
+- modkit pileup import  
+- Motif annotation (DRACH, RAC)  
+- Modified site calling  
+- Gene assignment  
+- Supplementary Figure S6 panels  
+
+---
+
+#### `downstream/proteomics/`
+Proteomics analysis is maintained as a modular workflow independent of transcriptomics.
+
+- **GO_analysis/**  
+  - GO:CC enrichment and bubble plots  
+
+- **IP_analysis/**  
+  - TRP immunoprecipitation rerun analysis and peptide heatmaps  
+
+- **heatmap/**  
+  - Protein intensity heatmaps across cortex and peripheral organs  
+
+- **proteomics_figures/**  
+  - Additional manuscript figures  
+
+- **heatmap_log/**  
+  - Log10-transformed TRP intensity heatmaps (Fig 3E, Supp Fig S8D)  
+
+- **protein_per_group/**  
+  - Protein counts per sample and PCA legend generation  
+
 ---
 
 ## Key inputs
 
 Most downstream scripts require:
 
-- Ensembl r115 annotation:
+- Ensembl r115 annotation  
   `Mus_musculus.GRCm39.115.gtf.gz`
 
-- TRP gene ID + gene symbol mapping
+- TRP gene ID + gene symbol mapping  
 
-- Merged Salmon gene-level TPM tables
+- Merged Salmon TPM tables (cortex + DRG)
 
-- NanoCount transcript-level quantification outputs
+- NanoCount transcript-level outputs  
 
-- IsoQuant isoform models (for isoform panels)
+- IsoQuant isoform models  
 
-- Annotated m6A site tables (for Supplementary Fig 6)
+- Annotated m6A site tables  
+
+- Processed proteomics intensity tables  
 
 ---
 
@@ -109,20 +134,19 @@ Most downstream scripts require:
 
 ### NanoCount (Nanopore, cortex)
 
-Located in:
-`downstream/expression/tables/`
+Located in: `downstream/expression/tables/`
 
-- `00_nanocount_allgenes_TPM_cortex_r115.py`
-  Builds gene-level TPM table across cortex replicates + mean
+- `00_nanocount_allgenes_TPM_cortex_r115.py`  
+  → Gene-level TPM (replicates + mean)
 
-- `01_nanocount_allgenes_readcounts_cortex_r115.py`
-  Builds gene-level read-count table across cortex replicates + mean
+- `01_nanocount_allgenes_readcounts_cortex_r115.py`  
+  → Gene-level read counts (replicates + mean)
 
 Used in:
-- Fig 1B
-- Supp Fig 2a
-- Supp Fig 3a
-- Supp Fig 4 (isoform panels)
+- Fig 1B  
+- Supp Fig S2a  
+- Supp Fig S3a  
+- Supp Fig S4  
 
 ---
 
@@ -130,59 +154,68 @@ Used in:
 
 Merged outputs include:
 
-- Cortex replicate TPMs
-- Cortex mean TPM
-- DRG TP
-- Gene ID annotation (Ensembl r115)
+- Cortex replicate TPMs  
+- Cortex mean TPM  
+- DRG TPM  
+- Gene ID annotation  
 
 Used in:
-- Fig 1C–D
-- Supp Fig 2b,c,d
-- Supp Fig 3b,d
+- Fig 1C–D  
+- Supp Fig S2b–d  
+- Supp Fig S3b–d  
 
 ---
 
 ### Isoform analysis (IsoQuant)
 
-- Known TRP isoforms
-- Novel TRP isoforms
-- Long-read splice validation
-- Isoform TPM panels (Supp Fig 4)
+- Known TRP isoforms  
+- Novel TRP isoforms  
+- Long-read splice validation  
+- Supplementary Figure S4  
 
 ---
 
-## m6A analysis (Nanopore direct RNA)
+## m6A analysis
 
-Located in:
-`downstream/m6A/`
+Located in: `downstream/m6A/`
 
-Pipeline steps:
+Pipeline:
+1. Import modkit pileup  
+2. Annotate motifs  
+3. Call modified sites  
+4. Assign to genes  
+5. Generate figures  
 
-1. Import modkit pileup output
-2. Attach motif annotation (DRACH, RAC)
-3. Call modified sites
-4. Assign sites to genes
-5. Generate Supplementary Fig 6 panels
+Outputs:
+- Stoichiometry distribution (S6a)  
+- Motif enrichment (S6b)  
+- Sites per gene (S6c)  
 
-Figure outputs include:
+---
 
-- Stoichiometry distribution (S6a)
-- Ranked motif enrichment (S6b)
-- Modified m6A sites per TRP gene (S6c)
+## Proteomics analysis
+
+Located in: `downstream/proteomics/`
+
+Includes:
+
+- Membrane-aware protein extraction comparisons  
+- TRP protein detection across tissues  
+- PCA and protein-group analysis  
+- GO enrichment (cellular component)  
+- TRP-focused heatmaps  
+
+All proteomics figures are generated from processed intensity tables included in the repository.
 
 ---
 
 ## Software
 
-Analyses were performed using:
-
-- Dorado v0.7.0
-- minimap2 v2.28
-- Salmon v1.10.1
-- NanoCount v1.2.1
-- IsoQuant v3.7.0
-- modkit (Nanopore modification calling)
-- Python ≥ 3.9
-- R (for selected plotting scripts)
-
-
+- Dorado v0.7.0  
+- minimap2 v2.28  
+- Salmon v1.10.1  
+- NanoCount v1.2.1  
+- IsoQuant v3.7.0  
+- modkit  
+- Python ≥ 3.9  
+- R  
