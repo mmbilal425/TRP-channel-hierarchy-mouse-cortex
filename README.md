@@ -35,7 +35,7 @@ Large raw sequencing and proteomics datasets are stored on HPC systems and are n
 
 ## Data availability
 
-RNA sequencing data are available in GEO under accession **GSE315051**.  
+RNA sequencing data are available in GEO under accession **GSE315051**, Link https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE315051.  
 Proteomics data are available in PRIDE under accession **PXD074939**.
 
 ---
