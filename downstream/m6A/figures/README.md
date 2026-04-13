@@ -27,9 +27,9 @@ Additional required fields:
 
 | Panel | Script | Description | Outputs |
 |------|--------|-------------|---------|
-| S6a | `SuppFig_S6a_m6A_stoichiometry_TRP.py` | Histogram of m6A stoichiometry (%) for modified m6A sites associated with TRP genes | `stoichiometry_histogram.tsv`, `stoichiometry_histogram.pdf` |
-| S6b | `SuppFig_S6b_m6A_ranked_motifs_TRP.py` | Ranked motif analysis of modified m6A sites; highlights canonical DRACH, RAC non-DRACH, and other motifs | `motif_modification_rates_m6A.tsv`, `motif_modification_rates_m6A.pdf`, `motif_modification_rates_m6A_legend.pdf` |
-| S6c | `SuppFig_S6c_m6A_sites_per_TRP_gene.py` | Number of modified m6A sites per TRP gene (bar plot) | `modified_sites_per_TRP_gene.tsv`, `SuppFig_S6c_m6A_sites_per_TRP_gene.pdf` |
+| S6a | `SuppFig_6a_m6A_stoichiometry_TRP.py` | Histogram of m6A stoichiometry (%) for modified m6A sites associated with TRP genes | `stoichiometry_histogram.tsv`, `stoichiometry_histogram.pdf` |
+| S6b | `SuppFig_6b_m6A_ranked_motifs_TRP.py` | Ranked motif analysis of modified m6A sites; highlights canonical DRACH, RAC non-DRACH, and other motifs | `motif_modification_rates_m6A.tsv`, `motif_modification_rates_m6A.pdf`, `motif_modification_rates_m6A_legend.pdf` |
+| S6c | `SuppFig_6c_m6A_sites_per_TRP_gene.py` | Number of modified m6A sites per TRP gene (bar plot) | `modified_sites_per_TRP_gene.tsv`, `SuppFig_6c_m6A_sites_per_TRP_gene.pdf` |
 
 ### Notes
 
