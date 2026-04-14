@@ -217,7 +217,7 @@ All proteomics figures are generated from processed intensity tables included in
 - NanoCount v1.2.1  
 - IsoQuant v3.7.0  
 - modkit  
-- Python ≥ 3.9  
+- Python ≥ v3.9  
 - R  
 
 ---
