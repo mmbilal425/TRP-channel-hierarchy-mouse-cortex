@@ -216,7 +216,7 @@ All proteomics figures are generated from processed intensity tables included in
 - Salmon v1.10.1  
 - NanoCount v1.2.1  
 - IsoQuant v3.7.0  
-- modkit  
+- modkit v0.4.1
 - Python ≥ v3.9  
 - R  
 
